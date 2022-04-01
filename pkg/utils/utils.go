@@ -18,7 +18,7 @@ func typecast(obj interface{}) (*v1.ConfigMap, error) {
 }
 
 func ConfigDecode(obj interface{}) *[]loudspeakerv1alpha1.Subscribe {
-	cm ,err := typecast(obj)
+	cm, err := typecast(obj)
 	if err != nil {
 		log.Error(err)
 		return nil
@@ -32,4 +32,3 @@ func ConfigDecode(obj interface{}) *[]loudspeakerv1alpha1.Subscribe {
 	}
 	return &subscribeConfig
 }
-

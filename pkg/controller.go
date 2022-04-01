@@ -8,7 +8,7 @@ import (
 	"k8s.io/client-go/tools/cache"
 )
 
-func NewConfigmapsController(clientset *kubernetes.Clientset, funcs * cache.ResourceEventHandlerFuncs, config config.Config) cache.Controller {
+func NewConfigmapsController(clientset *kubernetes.Clientset, funcs *cache.ResourceEventHandlerFuncs, config config.Config) cache.Controller {
 	watchConfigmaps := cache.NewListWatchFromClient(
 		clientset.CoreV1().RESTClient(),
 		string(v1.ResourceConfigMaps),
