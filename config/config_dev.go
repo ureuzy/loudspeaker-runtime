@@ -1,3 +1,4 @@
+//go:build !prod
 // +build !prod
 
 package config
@@ -15,6 +16,7 @@ import (
 type Config struct {
 	Type          v1alpha1.ListenerType `envconfig:"TYPE" default:"sentry"`
 	ConfigmapName string                `envconfig:"CONFIGMAP" default:"loudspeaker-sample-bar"`
+	Namespace     string                `envconfig:"NAMESPACE" default:"default"`
 }
 
 func (c *Config) LoadEnv() error {

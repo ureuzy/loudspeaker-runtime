@@ -1,3 +1,4 @@
+//go:build prod
 // +build prod
 
 package config
@@ -13,6 +14,7 @@ import (
 type Config struct {
 	Type          v1alpha1.ListenerType `envconfig:"TYPE" required:"true"`
 	ConfigmapName string                `envconfig:"CONFIGMAP" required:"true"`
+	Namespace     string                `envconfig:"NAMESPACE" required:"true"`
 }
 
 func (c *Config) LoadEnv() error {

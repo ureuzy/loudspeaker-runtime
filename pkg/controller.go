@@ -12,7 +12,7 @@ func NewConfigmapsController(clientset *kubernetes.Clientset, funcs *cache.Resou
 	watchConfigmaps := cache.NewListWatchFromClient(
 		clientset.CoreV1().RESTClient(),
 		string(v1.ResourceConfigMaps),
-		"default",
+		config.Namespace,
 		fields.SelectorFromSet(fields.Set{"metadata.name": config.ConfigmapName}))
 
 	_, configmapsController := cache.NewInformer(watchConfigmaps, &v1.ConfigMap{}, 0, *funcs)
