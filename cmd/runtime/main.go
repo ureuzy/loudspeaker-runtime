@@ -18,8 +18,12 @@ func main() {
 		log.Fatal(err)
 	}
 
-	pub := publisher.New(clientset)
+	var conf config.Config
+	if err = conf.LoadEnv(); err != nil {
+		log.Fatal(err)
+	}
 
+	pub := publisher.New(clientset)
 	configmapsController := pkg.NewConfigmapsController(clientset, &cache.ResourceEventHandlerFuncs{
 		AddFunc: func(obj interface{}) {
 			pub.Add(obj)
@@ -27,7 +31,7 @@ func main() {
 		UpdateFunc: func(oldObj, newObj interface{}) {
 			pub.Update(newObj)
 		},
-	})
+	}, conf)
 
 	ctx := signals.NewContext()
 

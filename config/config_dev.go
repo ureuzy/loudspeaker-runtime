@@ -1,11 +1,24 @@
 package config
 
 import (
+	"github.com/kelseyhightower/envconfig"
+	"github.com/masanetes/loudspeaker/api/v1alpha1"
 	"k8s.io/client-go/rest"
 	"k8s.io/client-go/tools/clientcmd"
 	"log"
-	"os"
 )
+
+type Config struct {
+	Type          v1alpha1.ListenerType `envconfig:"TYPE" default:"sentry"`
+	ConfigmapName string                `envconfig:"CONFIGMAP" default:"loudspeaker-sample-bar"`
+}
+
+func (c *Config) LoadEnv() error {
+	if err := envconfig.Process("", c); err != nil {
+		return err
+	}
+	return nil
+}
 
 func LoadClusterConfig() *rest.Config {
 	config, err := clientcmd.BuildConfigFromFlags("", "/Users/masa/.kube/config")
@@ -13,11 +26,4 @@ func LoadClusterConfig() *rest.Config {
 		log.Fatal(err)
 	}
 	return config
-}
-
-func homeDir() string {
-	if h := os.Getenv("HOME"); h != "" {
-		return h
-	}
-	return os.Getenv("USERPROFILE") // windows
 }

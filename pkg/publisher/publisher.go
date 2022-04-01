@@ -96,10 +96,11 @@ func (p *publisher) process(ctx context.Context, subscribe loudspeakerv1alpha1.S
 		case event := <-rw.ResultChan():
 			if p, ok := event.Object.(*v1.Event); ok {
 				if ok {
-					log.Infof("[Capture thread: %s] Type: %s, Namespace: %s, Message: %s",
+					log.Infof("[Capture Namespace: %s] Type: %s, Namespace: %s, Reason: %s, Message: %s",
 						subscribe.Namespace,
 						p.Type,
 						p.Namespace,
+						p.Reason,
 						p.Message)
 				}
 			}
