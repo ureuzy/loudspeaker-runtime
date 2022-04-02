@@ -15,7 +15,7 @@ import (
 
 type Config struct {
 	Type          v1alpha1.ListenerType `envconfig:"TYPE" default:"sentry"`
-	ConfigmapName string                `envconfig:"CONFIGMAP" default:"loudspeaker-sample-bar"`
+	ConfigmapName string                `envconfig:"CONFIGMAP" default:"loudspeaker-sample-foo"`
 	Namespace     string                `envconfig:"NAMESPACE" default:"default"`
 }
 
