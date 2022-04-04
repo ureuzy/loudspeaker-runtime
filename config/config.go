@@ -4,7 +4,6 @@
 package config
 
 import (
-	"fmt"
 	"gopkg.in/yaml.v3"
 	"log"
 	"os"
@@ -13,8 +12,6 @@ import (
 	"github.com/masanetes/loudspeaker-runtime/pkg/constants"
 	"github.com/masanetes/loudspeaker/api/v1alpha1"
 	"k8s.io/client-go/rest"
-	"k8s.io/client-go/tools/clientcmd"
-	"k8s.io/client-go/util/homedir"
 )
 
 type Config struct {
