@@ -3,6 +3,7 @@ package listener
 import (
 	"encoding/json"
 	"fmt"
+
 	"github.com/getsentry/sentry-go"
 	"github.com/masanetes/loudspeaker-runtime/pkg/utils"
 	log "github.com/sirupsen/logrus"

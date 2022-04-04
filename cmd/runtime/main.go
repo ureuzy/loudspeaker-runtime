@@ -1,6 +1,8 @@
 package main
 
 import (
+	"time"
+
 	"github.com/getsentry/sentry-go"
 	"github.com/masanetes/loudspeaker-runtime/config"
 	"github.com/masanetes/loudspeaker-runtime/pkg"
@@ -10,7 +12,6 @@ import (
 	log "github.com/sirupsen/logrus"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/cache"
-	"time"
 )
 
 func main() {
@@ -26,12 +27,17 @@ func main() {
 		log.Fatal(err)
 	}
 
-	err = sentry.Init(sentry.ClientOptions{
-		Dsn: "",
-	})
-	if err != nil {
+	var creds config.SentryCredentials
+	if err = creds.Load(); err != nil {
+		log.Fatal(err)
+	}
+
+	if err = sentry.Init(sentry.ClientOptions{
+		Dsn: creds.Dsn,
+	}); err != nil {
 		log.Fatalf("sentry.Init: %s", err)
 	}
+
 	defer sentry.Flush(2 * time.Second)
 
 	client := listener.NewSentryClient()
@@ -47,7 +53,6 @@ func main() {
 	}, conf)
 
 	ctx := signals.NewContext()
-
 	go configmapsController.Run(ctx.Done())
 	go mgr.Run(ctx)
 	<-ctx.Done()

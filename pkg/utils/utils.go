@@ -4,11 +4,12 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
+	"strconv"
+
 	loudspeakerv1alpha1 "github.com/masanetes/loudspeaker/api/v1alpha1"
 	log "github.com/sirupsen/logrus"
 	v1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/util/yaml"
-	"strconv"
 )
 
 func typecast(obj interface{}) (*v1.ConfigMap, error) {

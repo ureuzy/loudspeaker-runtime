@@ -2,6 +2,8 @@ package manager
 
 import (
 	"context"
+	"strconv"
+
 	"github.com/masanetes/loudspeaker-runtime/pkg/listener"
 	"github.com/masanetes/loudspeaker-runtime/pkg/utils"
 	loudspeakerv1alpha1 "github.com/masanetes/loudspeaker/api/v1alpha1"
@@ -12,7 +14,6 @@ import (
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/cache"
 	"k8s.io/client-go/tools/watch"
-	"strconv"
 )
 
 type Manager interface {
@@ -83,7 +84,7 @@ func (p *manager) process(ctx context.Context, observe loudspeakerv1alpha1.Obser
 		case event := <-rw.ResultChan():
 			if e, ok := event.Object.(*v1.Event); ok {
 				p.listener.Send(e)
-				log.Infof("[%s] %s %s %s", namespace, e.Name, e.Namespace, e.Reason)
+				log.Infof("[%s] %s %s %s", namespace, e.Namespace, e.Name, e.Reason)
 			}
 		case <-ctx.Done():
 			log.Warningf("[%s] Observation is terminated", namespace)
