@@ -83,6 +83,9 @@ func (p *manager) process(ctx context.Context, observe loudspeakerv1alpha1.Obser
 		select {
 		case event := <-rw.ResultChan():
 			if e, ok := event.Object.(*v1.Event); ok {
+				if observe.Ignores.Contains(e.Reason) {
+					continue
+				}
 				p.listener.Send(e)
 				log.Infof("[%s] %s %s %s", namespace, e.Namespace, e.Name, e.Reason)
 			}
