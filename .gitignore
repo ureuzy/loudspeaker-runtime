@@ -8,7 +8,7 @@
 bin
 testbin/*
 
-test
+testenv
 
 # Test binary, build with `go test -c`
 *.test
