@@ -32,6 +32,7 @@ jobs:
         run: goimports
       
       - name: Get dependencies
+        working-directory: ${{ github.workspace }}/cmd/runtime
         run: go get -t .
       
       - name: Test
