@@ -13,7 +13,7 @@ run: fmt vet
 	go run ./cmd/runtime/main.go
 
 test:
-	go test ./...
+	go test ./... -coverprofile cover.out
 
 docker-build: test
 	docker build -t ${IMG} .

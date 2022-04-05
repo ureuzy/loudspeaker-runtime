@@ -4,5 +4,5 @@
 package constants
 
 const (
-	CredentialsPath = "./test/creds/credentials.yaml"
+	CredentialsPath = "./testenv/creds/credentials.yaml"
 )
