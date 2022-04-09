@@ -1,6 +1,6 @@
 # Loudspeaker Runtime
 
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Docker](https://img.shields.io/docker/v/masanetes/loudspeaker-runtime/v0.0.1?color=blue&logo=docker)](https://hub.docker.com/repository/docker/masanetes/loudspeaker-runtime)
 [![Go Reference](https://pkg.go.dev/badge/github.com/masanetes/loudspeaker-runtime.svg)](https://pkg.go.dev/github.com/masanetes/loudspeaker-runtime)
 [![Test](https://github.com/masanetes/loudspeaker-runtime/actions/workflows/test.yaml/badge.svg)](https://github.com/masanetes/loudspeaker-runtime/actions/workflows/test.yaml)
