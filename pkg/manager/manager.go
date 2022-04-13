@@ -83,16 +83,10 @@ func (p *manager) process(ctx context.Context, observe loudspeakerv1alpha1.Obser
 		select {
 		case event := <-rw.ResultChan():
 			if e, ok := event.Object.(*v1.Event); ok {
-				if observe.IgnoreReasons.Contains(e.Reason) {
-					continue
-				}
-				if len(observe.InvolvedObjectKinds) != 0 && !observe.InvolvedObjectKinds.Contains(e.InvolvedObject.Kind){
-					continue
-				}
-				if len(observe.InvolvedObjectNames) != 0 && !observe.InvolvedObjectNames.Contains(e.InvolvedObject.Name){
-					continue
-				}
-				if len(observe.EventTypes) != 0 && !observe.EventTypes.Contains(e.Type){
+				if observe.IgnoreReasons.Contains(e.Reason) ||
+					observe.IgnoreObjectKinds.Contains(e.InvolvedObject.Kind) ||
+					observe.IgnoreObjectNames.Contains(e.InvolvedObject.Name) ||
+					observe.IgnoreEventTypes.Contains(e.Type) {
 					continue
 				}
 				p.listener.Send(e)
