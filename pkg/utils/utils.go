@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"strconv"
 
-	loudspeakerv1alpha1 "github.com/masanetes/loudspeaker/api/v1alpha1"
 	log "github.com/sirupsen/logrus"
+	loudspeakerv1alpha1 "github.com/ureuzy/loudspeaker/api/v1alpha1"
 	v1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/util/yaml"
 )

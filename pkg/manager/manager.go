@@ -4,10 +4,10 @@ import (
 	"context"
 	"strconv"
 
-	"github.com/masanetes/loudspeaker-runtime/pkg/listener"
-	"github.com/masanetes/loudspeaker-runtime/pkg/utils"
-	loudspeakerv1alpha1 "github.com/masanetes/loudspeaker/api/v1alpha1"
 	log "github.com/sirupsen/logrus"
+	"github.com/ureuzy/loudspeaker-runtime/pkg/listener"
+	"github.com/ureuzy/loudspeaker-runtime/pkg/utils"
+	loudspeakerv1alpha1 "github.com/ureuzy/loudspeaker/api/v1alpha1"
 	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/fields"

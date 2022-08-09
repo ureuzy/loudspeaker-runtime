@@ -5,8 +5,8 @@ import (
 	"fmt"
 
 	"github.com/getsentry/sentry-go"
-	"github.com/masanetes/loudspeaker-runtime/pkg/utils"
 	log "github.com/sirupsen/logrus"
+	"github.com/ureuzy/loudspeaker-runtime/pkg/utils"
 	corev1 "k8s.io/api/core/v1"
 )
 
@@ -14,7 +14,7 @@ func NewSentryClient() Client {
 	return &client{}
 }
 
-func (c *client) Send(kubeEvent *corev1.Event)  {
+func (c *client) Send(kubeEvent *corev1.Event) {
 
 	jsonStr, err := json.Marshal(kubeEvent)
 	if err != nil {
@@ -32,12 +32,12 @@ func (c *client) Send(kubeEvent *corev1.Event)  {
 	delete(*result, "metadata.managedFields.0")
 
 	event := &sentry.Event{
-		Message:     fmt.Sprintf("%s.%s.%s",
+		Message: fmt.Sprintf("%s.%s.%s",
 			kubeEvent.APIVersion,
 			kubeEvent.InvolvedObject.Kind,
 			kubeEvent.InvolvedObject.Name,
 		),
-		Tags:        *result,
+		Tags: *result,
 	}
 
 	sentry.CaptureEvent(event)
