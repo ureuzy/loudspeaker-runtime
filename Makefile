@@ -1,4 +1,4 @@
-IMG ?= masanetes/loudspeaker-runtime:latest
+IMG ?= ureuzy/loudspeaker-runtime:latest
 
 fmt:
 	go fmt ./...

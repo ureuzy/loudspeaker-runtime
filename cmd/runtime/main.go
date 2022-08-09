@@ -4,12 +4,12 @@ import (
 	"time"
 
 	"github.com/getsentry/sentry-go"
-	"github.com/masanetes/loudspeaker-runtime/config"
-	"github.com/masanetes/loudspeaker-runtime/pkg"
-	"github.com/masanetes/loudspeaker-runtime/pkg/listener"
-	"github.com/masanetes/loudspeaker-runtime/pkg/manager"
-	"github.com/masanetes/loudspeaker-runtime/pkg/signals"
 	log "github.com/sirupsen/logrus"
+	"github.com/ureuzy/loudspeaker-runtime/config"
+	"github.com/ureuzy/loudspeaker-runtime/pkg"
+	"github.com/ureuzy/loudspeaker-runtime/pkg/listener"
+	"github.com/ureuzy/loudspeaker-runtime/pkg/manager"
+	"github.com/ureuzy/loudspeaker-runtime/pkg/signals"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/cache"
 )
