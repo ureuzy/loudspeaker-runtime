@@ -1,7 +1,7 @@
 # Loudspeaker Runtime
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Docker](https://img.shields.io/docker/v/ureuzy/loudspeaker-runtime/v0.1.0?color=blue&logo=docker)](https://hub.docker.com/repository/docker/ureuzy/loudspeaker-runtime)
+[![Docker](https://img.shields.io/docker/v/ureuzy/loudspeaker-runtime/v0.1.1?color=blue&logo=docker)](https://hub.docker.com/repository/docker/ureuzy/loudspeaker-runtime)
 [![Go Reference](https://pkg.go.dev/badge/github.com/ureuzy/loudspeaker-runtime.svg)](https://pkg.go.dev/github.com/ureuzy/loudspeaker-runtime)
 [![Test](https://github.com/ureuzy/loudspeaker-runtime/actions/workflows/test.yaml/badge.svg)](https://github.com/ureuzy/loudspeaker-runtime/actions/workflows/test.yaml)
 [![report](https://goreportcard.com/badge/github.com/ureuzy/loudspeaker-runtime)](https://goreportcard.com/report/github.com/ureuzy/loudspeaker-runtime)
